@@ -1,5 +1,14 @@
+import {useQuery} from 'react-query'
 export default function Home() {
 
+ function FetchQuote() {
+    const {isLoading, data, error} = useQuery("https://api.hamatim.com/quote", ()=> {
+
+    });
+
+  } 
+
+/*
   async function quoteGen() {
     const res = await fetch("https://api.hamatim.com/quote")
     const data = await res.json()
@@ -7,13 +16,15 @@ export default function Home() {
     const author = data.author;
     const book = data.book;
 
-    <div> {quote} </div>
     console.log(data)
   }
+
   quoteGen();
+  */
   return (
-  <main className=" w-screen h-screen">
-    <div>Hello World</div>
+    <main className=" w-screen h-screen">
+      <div>Hello World</div>
+      <div>{data}</div>
     </main>
   )
 }
